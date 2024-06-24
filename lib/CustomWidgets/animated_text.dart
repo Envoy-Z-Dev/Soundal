@@ -1,9 +1,7 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:marquee/marquee.dart' as wrapped;
+import 'package:soundal/CustomWidgets/fading_edge_scrollview.dart';
 
-class AnimatedText extends StatelessWidget {
+class AnimatedText extends StatefulWidget {
   final String text;
   final TextStyle? style;
   final double? textScaleFactor;
@@ -27,6 +25,7 @@ class AnimatedText extends StatelessWidget {
   final VoidCallback? onDone;
 
   const AnimatedText({
+    super.key,
     required this.text,
     this.style,
     this.textScaleFactor,
@@ -51,12 +50,59 @@ class AnimatedText extends StatelessWidget {
   });
 
   @override
+  _AnimatedTextState createState() => _AnimatedTextState();
+}
+
+class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderStateMixin {
+  late ScrollController _scrollController;
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: (widget.text.length / widget.velocity).ceil()),
+    );
+    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
+
+    _animationController.addListener(() {
+      if (_scrollController.hasClients) {
+        _scrollController.jumpTo(_animation.value * _scrollController.position.maxScrollExtent);
+      }
+    });
+
+    _animationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        if (widget.numberOfRounds == null || widget.numberOfRounds! > 1) {
+          _animationController.repeat();
+        } else {
+          widget.onDone?.call();
+        }
+      }
+    });
+
+    Future.delayed(widget.startAfter, () {
+      _animationController.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         final span = TextSpan(
-          text: text,
-          style: style,
+          text: widget.text,
+          style: widget.style,
         );
 
         final tp = TextPainter(
@@ -66,42 +112,42 @@ class AnimatedText extends StatelessWidget {
           text: span,
         );
 
-        tp.layout(maxWidth: constraints.maxWidth);
+        tp.layout(maxWidth: double.infinity);
 
-        if (tp.didExceedMaxLines) {
+        if (tp.width > constraints.maxWidth) {
+          final scrollingText = SingleChildScrollView(
+            scrollDirection: widget.scrollAxis,
+            controller: _scrollController,
+            child: Container(
+              padding: EdgeInsets.only(
+                right: widget.scrollAxis == Axis.horizontal ? tp.width : 0,
+                bottom: widget.scrollAxis == Axis.vertical ? tp.height : 0,
+              ),
+              child: Text(
+                widget.text,
+                style: widget.style,
+                textScaleFactor: widget.textScaleFactor,
+              ),
+            ),
+          );
+
           return SizedBox(
-            height: tp.height,
             width: constraints.maxWidth,
-            child: wrapped.Marquee(
-              text: '  $text${" " * 30}',
-              style: style,
-              textScaleFactor: textScaleFactor,
-              textDirection: textDirection,
-              scrollAxis: scrollAxis,
-              crossAxisAlignment: crossAxisAlignment,
-              blankSpace: blankSpace,
-              velocity: velocity,
-              startAfter: startAfter,
-              pauseAfterRound: pauseAfterRound,
-              numberOfRounds: numberOfRounds,
-              showFadingOnlyWhenScrolling: showFadingOnlyWhenScrolling,
-              fadingEdgeStartFraction: fadingEdgeStartFraction,
-              fadingEdgeEndFraction: fadingEdgeEndFraction,
-              startPadding: startPadding,
-              accelerationDuration: accelerationDuration,
-              accelerationCurve: accelerationCurve,
-              decelerationDuration: decelerationDuration,
-              decelerationCurve: decelerationCurve,
-              onDone: onDone,
+            height: tp.height,
+            child: FadingEdgeScrollView.fromSingleChildScrollView(
+              gradientFractionOnStart: widget.fadingEdgeStartFraction,
+              gradientFractionOnEnd: widget.fadingEdgeEndFraction,
+              child: scrollingText,
             ),
           );
         } else {
           return SizedBox(
             width: constraints.maxWidth,
             child: Text(
-              text,
-              style: style,
-              textAlign: defaultAlignment,
+              widget.text,
+              style: widget.style,
+              textAlign: widget.defaultAlignment,
+              textScaleFactor: widget.textScaleFactor,
             ),
           );
         }

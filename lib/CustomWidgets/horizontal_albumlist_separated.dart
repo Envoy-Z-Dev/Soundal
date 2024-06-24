@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:soundal/CustomWidgets/custom_physics.dart';
@@ -81,13 +79,17 @@ class HorizontalAlbumsListSeparated extends StatelessWidget {
                 children: itemGroup.map((item) {
                   final subTitle = getSubTitle(item as Map);
                   return ListTile(
-                    title: Text(
-                      formatString(item['title']?.toString()),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    title: Text(formatString(item['title']?.toString()),
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),),
                     subtitle: Text(
                       subTitle,
                       overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white38,
+                      ),
                     ),
                     leading: Card(
                       margin: EdgeInsets.zero,

@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:soundal/CustomWidgets/like_button.dart';
@@ -244,6 +242,7 @@ class HorizontalAlbumsList extends StatelessWidget {
                                 softWrap: false,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -253,12 +252,9 @@ class HorizontalAlbumsList extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   softWrap: false,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 11,
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .color,
+                                    color: Colors.white38,
                                   ),
                                 )
                             ],

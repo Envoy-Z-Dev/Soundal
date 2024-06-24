@@ -124,7 +124,8 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                               Text(
                                 title,
                                 style: const TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w600,
                                 ),
                                 maxLines: 2,
@@ -140,12 +141,9 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                                     softWrap: false,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 3,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 12,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .color,
+                                      color: Colors.white38,
                                     ),
                                   ),
                                 ),
@@ -160,12 +158,9 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                                     softWrap: false,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 3,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 12,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .color,
+                                      color: Colors.white38,
                                     ),
                                   ),
                                 ),
@@ -220,7 +215,8 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                                                 ),
                                                 const SizedBox(width: 5.0),
                                                 Flexible(
-                                                    child: Text(
+                                                    child: FittedBox(fit: BoxFit.fitWidth,
+                                                        child: Text(
                                                   AppLocalizations.of(context)!
                                                       .play,
                                                   style: TextStyle(
@@ -234,7 +230,7 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                                                         : Colors.white,
                                                   ),
                                                   textAlign: TextAlign.center,
-                                                )),
+                                                ))),
                                                 const SizedBox(width: 10.0),
                                               ],
                                             ),

@@ -440,6 +440,7 @@ class _HomePageState extends State<HomePage> {
                                                                   letterSpacing:
                                                                       2,
                                                                   fontSize: 20,
+                                                                  color: Colors.white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -514,13 +515,9 @@ class _HomePageState extends State<HomePage> {
                                                           context,
                                                         )!
                                                             .searchText,
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                           fontSize: 16.0,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .textTheme
-                                                                  .bodySmall!
-                                                                  .color,
+                                                          color: Colors.white,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),

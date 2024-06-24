@@ -389,6 +389,7 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: const TextStyle(
+                                                      color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),
@@ -402,12 +403,9 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                       softWrap: false,
                                                       overflow:
                                                           TextOverflow.ellipsis,
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 11,
-                                                        color: Theme.of(context)
-                                                            .textTheme
-                                                            .bodySmall!
-                                                            .color,
+                                                        color: Colors.white38,
                                                       ),
                                                     )
                                                 ],
@@ -989,6 +987,7 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: const TextStyle(
+                                                    color: Colors.white,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
@@ -999,12 +998,9 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                     softWrap: false,
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                      fontSize: 11,
-                                                      color: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .color,
+                                                    style: const TextStyle(
+                                                      color: Colors.white38,
+                                                      fontSize: 11
                                                     ),
                                                   )
                                               ],
