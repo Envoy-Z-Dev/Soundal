@@ -7,7 +7,7 @@ on:
         develop
 
 env:
-  JAVA_VERSION: "12.x"
+  JAVA_VERSION: "21.x"
   FLUTTER_CHANNEL: "stable"
   #PROPERTIES_PATH: "./android/key.properties"
 
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3.5.2
-      - uses: actions/setup-java@v3.11.0
+      - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: ${{env.JAVA_VERSION}}
@@ -82,7 +82,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.2
       # Setup Java environment in order to build the Android app.
-      - uses: actions/setup-java@v3.11.0
+      - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: ${{env.JAVA_VERSION}}
