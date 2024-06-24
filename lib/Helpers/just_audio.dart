@@ -3278,8 +3278,8 @@ _ProxyHandler _proxyHandlerForUri(
   return handler;
 }
 
-Future<Directory> _getCacheDir() async =>
-    Directory(p.join((await getTemporaryDirectory()).path, 'just_audio_cache','cache'));
+Future<Directory> _getCacheDir() async => Directory(
+    p.join((await getTemporaryDirectory()).path, 'just_audio_cache', 'cache'));
 
 /// Defines the algorithm for shuffling the order of a
 /// [ConcatenatingAudioSource]. See [DefaultShuffleOrder] for a default
