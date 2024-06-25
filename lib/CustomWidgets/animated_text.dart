@@ -34,7 +34,7 @@ class AnimatedText extends StatefulWidget {
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.defaultAlignment = TextAlign.center,
     this.blankSpace = 0.0,
-    this.velocity = 50.0,
+    this.velocity = 5,
     this.startAfter = Duration.zero,
     this.pauseAfterRound = Duration.zero,
     this.showFadingOnlyWhenScrolling = true,
