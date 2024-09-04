@@ -1,5 +1,3 @@
-
-
 import 'package:app_links/app_links.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:soundal/APIs/spotify_api.dart';

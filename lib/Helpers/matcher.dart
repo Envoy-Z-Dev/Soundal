@@ -1,5 +1,3 @@
-
-
 import 'package:soundal/Helpers/logging.dart';
 
 bool matchSongs({

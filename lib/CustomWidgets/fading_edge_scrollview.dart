@@ -336,11 +336,11 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
       : AlignmentDirectional.centerEnd;
 
   List<Color> _getColors(bool isStartEnabled, bool isEndEnabled) => [
-    (isStartEnabled ? Colors.transparent : Colors.white),
-    Colors.white,
-    Colors.white,
-    (isEndEnabled ? Colors.transparent : Colors.white)
-  ];
+        (isStartEnabled ? Colors.transparent : Colors.white),
+        Colors.white,
+        Colors.white,
+        (isEndEnabled ? Colors.transparent : Colors.white)
+      ];
 }
 
 extension _Let<T> on T {

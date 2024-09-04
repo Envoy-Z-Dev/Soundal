@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -215,22 +213,26 @@ class BouncyPlaylistHeaderScrollView extends StatelessWidget {
                                                 ),
                                                 const SizedBox(width: 5.0),
                                                 Flexible(
-                                                    child: FittedBox(fit: BoxFit.fitWidth,
+                                                    child: FittedBox(
+                                                        fit: BoxFit.fitWidth,
                                                         child: Text(
-                                                  AppLocalizations.of(context)!
-                                                      .play,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 13.0,
-                                                    color: Theme.of(context)
-                                                                .colorScheme
-                                                                .secondary ==
-                                                            Colors.white
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                  ),
-                                                  textAlign: TextAlign.center,
-                                                ))),
+                                                          AppLocalizations.of(
+                                                                  context)!
+                                                              .play,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 13.0,
+                                                            color: Theme.of(context)
+                                                                        .colorScheme
+                                                                        .secondary ==
+                                                                    Colors.white
+                                                                ? Colors.black
+                                                                : Colors.white,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        ))),
                                                 const SizedBox(width: 10.0),
                                               ],
                                             ),

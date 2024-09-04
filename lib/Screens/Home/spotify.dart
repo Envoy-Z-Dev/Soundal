@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -999,9 +997,8 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: const TextStyle(
-                                                      color: Colors.white38,
-                                                      fontSize: 11
-                                                    ),
+                                                        color: Colors.white38,
+                                                        fontSize: 11),
                                                   )
                                               ],
                                             ),

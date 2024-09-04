@@ -1,5 +1,3 @@
-
-
 const content = ['contents', 0];
 const runText = ['runs', 0, 'text'];
 const tabContent = ['tabs', 0, 'tabRenderer', 'content'];

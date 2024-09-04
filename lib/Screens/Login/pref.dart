@@ -1,5 +1,3 @@
-
-
 import 'package:soundal/CustomWidgets/gradient_containers.dart';
 import 'package:soundal/CustomWidgets/snackbar.dart';
 import 'package:soundal/Helpers/backup_restore.dart';

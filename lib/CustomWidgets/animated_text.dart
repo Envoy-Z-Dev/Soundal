@@ -53,7 +53,8 @@ class AnimatedText extends StatefulWidget {
   _AnimatedTextState createState() => _AnimatedTextState();
 }
 
-class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderStateMixin {
+class _AnimatedTextState extends State<AnimatedText>
+    with SingleTickerProviderStateMixin {
   late ScrollController _scrollController;
   late AnimationController _animationController;
   late Animation<double> _animation;
@@ -64,13 +65,15 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
     _scrollController = ScrollController();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: (widget.text.length / widget.velocity).ceil()),
+      duration:
+          Duration(seconds: (widget.text.length / widget.velocity).ceil()),
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
 
     _animationController.addListener(() {
       if (_scrollController.hasClients) {
-        _scrollController.jumpTo(_animation.value * _scrollController.position.maxScrollExtent);
+        _scrollController.jumpTo(
+            _animation.value * _scrollController.position.maxScrollExtent);
       }
     });
 

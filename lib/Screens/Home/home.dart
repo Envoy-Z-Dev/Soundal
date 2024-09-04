@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -440,7 +439,8 @@ class _HomePageState extends State<HomePage> {
                                                                   letterSpacing:
                                                                       2,
                                                                   fontSize: 20,
-                                                                  color: Colors.white,
+                                                                  color: Colors
+                                                                      .white,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,

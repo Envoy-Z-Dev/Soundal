@@ -1,5 +1,3 @@
-
-
 import 'dart:math';
 
 import 'package:soundal/Screens/Player/audioplayer.dart';

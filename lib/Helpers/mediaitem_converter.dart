@@ -1,5 +1,3 @@
-
-
 import 'package:audio_service/audio_service.dart';
 import 'package:soundal/Helpers/image_resolution_modifier.dart';
 

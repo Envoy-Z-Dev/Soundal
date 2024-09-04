@@ -79,11 +79,13 @@ class HorizontalAlbumsListSeparated extends StatelessWidget {
                 children: itemGroup.map((item) {
                   final subTitle = getSubTitle(item as Map);
                   return ListTile(
-                    title: Text(formatString(item['title']?.toString()),
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),),
+                    title: Text(
+                      formatString(item['title']?.toString()),
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                     subtitle: Text(
                       subTitle,
                       overflow: TextOverflow.ellipsis,

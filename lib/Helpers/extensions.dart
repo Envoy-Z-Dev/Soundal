@@ -1,4 +1,3 @@
-
 extension StringExtension on String {
   String capitalize() {
     if (this != '') {

@@ -1,4 +1,3 @@
-
 import 'package:soundal/Helpers/logging.dart';
 
 bool compareVersion(String latestVersion, String currentVersion) {

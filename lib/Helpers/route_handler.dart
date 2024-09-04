@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:soundal/APIs/api.dart';
