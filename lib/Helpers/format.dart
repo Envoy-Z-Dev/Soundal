@@ -1,22 +1,3 @@
-/*
- *  This file is part of Soundal (https://github.com/Sangwan5688/Soundal).
- * 
- * Soundal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Soundal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Soundal.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -679,20 +660,29 @@ class FormatResponse {
       String youtubeId = '';
       if (cacheId == null || cacheId == 'null') {
         Logger.root.info(
-          'searching yt music for ${element['name']} ${artists.join(', ')} ${element['album']?['name']}',
+          'Searching youtube for ${element['name']} ${artists.join(', ')} ${element['album']?['name']}',
         );
-        final List ytResult =
+        /* final List ytResult =
             await YtMusicService().search("${element['name']} ${artists.join(
+          ', ',
+        )} ${element['album']?['name']}");*/
+
+        final List ytResult = await YouTubeServices()
+            .fetchSearchResults("${element['name']} ${artists.join(
           ', ',
         )} ${element['album']?['name']}");
 
         try {
-          youtubeId = (ytResult[0]['items'] as List)
+          /*youtubeId = (ytResult[0]['items'] as List)
               .where((x) => x['type'] == 'Song')
               .first['id']
-              .toString();
+              .toString();*/
+          youtubeId = (ytResult[0]['items'] as List)[0]['id'].toString();
         } catch (e) {
-          youtubeId = (ytResult[1]['items'] as List).first['id'].toString();
+          //youtubeId = (ytResult[1]['items'] as List).first['id'].toString();
+          Logger.root.info(
+            'No results for ${element['name']} ${artists.join(', ')} ${element['album']?['name']} youtube search',
+          );
         } finally {
           if (youtubeId != 'null' && youtubeId != null) {
             await MyApp.hiveMutex.protect(() async {
@@ -726,6 +716,7 @@ class FormatResponse {
         response['album_id'] = element['album']['id'];
         response['spotify_artist_id'] = artistsId;
         response['perma_url'] = element['external_urls']['spotify'];
+        response['title'] = element['name'];
         response['genre'] =
             ''; //TODO: Get genres from album tracks for all endpoints that retrieve tracks
         return response;

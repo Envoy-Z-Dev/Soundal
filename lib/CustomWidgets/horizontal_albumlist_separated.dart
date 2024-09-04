@@ -1,22 +1,3 @@
-/*
- *  This file is part of Soundal (https://github.com/Sangwan5688/Soundal).
- * 
- * Soundal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Soundal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Soundal.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:soundal/CustomWidgets/custom_physics.dart';
@@ -98,13 +79,17 @@ class HorizontalAlbumsListSeparated extends StatelessWidget {
                 children: itemGroup.map((item) {
                   final subTitle = getSubTitle(item as Map);
                   return ListTile(
-                    title: Text(
-                      formatString(item['title']?.toString()),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    title: Text(formatString(item['title']?.toString()),
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),),
                     subtitle: Text(
                       subTitle,
                       overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white38,
+                      ),
                     ),
                     leading: Card(
                       margin: EdgeInsets.zero,
