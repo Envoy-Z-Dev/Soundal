@@ -37,7 +37,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   final bool shouldDisposeScrollController;
 
   const FadingEdgeScrollView._internal({
-    Key? key,
+    super.key,
     required this.child,
     required this.scrollController,
     required this.reverse,
@@ -46,8 +46,7 @@ class FadingEdgeScrollView extends StatefulWidget {
     required this.gradientFractionOnEnd,
     required this.shouldDisposeScrollController,
   })  : assert(gradientFractionOnStart >= 0 && gradientFractionOnStart <= 1),
-        assert(gradientFractionOnEnd >= 0 && gradientFractionOnEnd <= 1),
-        super(key: key);
+        assert(gradientFractionOnEnd >= 0 && gradientFractionOnEnd <= 1);
 
   /// Constructor for creating [FadingEdgeScrollView] with [ScrollView] as child
   /// child must have [ScrollView.controller] set
@@ -60,18 +59,18 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
       key: key,
-      child: child,
       scrollController: controller,
       scrollDirection: child.scrollDirection,
       reverse: child.reverse,
       gradientFractionOnStart: gradientFractionOnStart,
       gradientFractionOnEnd: gradientFractionOnEnd,
       shouldDisposeScrollController: shouldDisposeScrollController,
+      child: child,
     );
   }
 
@@ -86,18 +85,18 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
       key: key,
-      child: child,
       scrollController: controller,
       scrollDirection: child.scrollDirection,
       reverse: child.reverse,
       gradientFractionOnStart: gradientFractionOnStart,
       gradientFractionOnEnd: gradientFractionOnEnd,
       shouldDisposeScrollController: shouldDisposeScrollController,
+      child: child,
     );
   }
 
@@ -112,7 +111,7 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
@@ -138,18 +137,18 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
       key: key,
-      child: child,
       scrollController: controller,
       scrollDirection: child.scrollDirection,
       reverse: child.reverse,
       gradientFractionOnStart: gradientFractionOnStart,
       gradientFractionOnEnd: gradientFractionOnEnd,
       shouldDisposeScrollController: shouldDisposeScrollController,
+      child: child,
     );
   }
 
@@ -164,18 +163,18 @@ class FadingEdgeScrollView extends StatefulWidget {
   }) {
     final controller = child.controller;
     if (controller == null) {
-      throw Exception("Child must have controller set");
+      throw Exception('Child must have controller set');
     }
 
     return FadingEdgeScrollView._internal(
       key: key,
-      child: child,
       scrollController: controller,
       scrollDirection: Axis.vertical,
       reverse: false,
       gradientFractionOnStart: gradientFractionOnStart,
       gradientFractionOnEnd: gradientFractionOnEnd,
       shouldDisposeScrollController: shouldDisposeScrollController,
+      child: child,
     );
   }
 
@@ -303,13 +302,13 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
         ],
         colors: _getColors(
             widget.gradientFractionOnStart > 0 && !(_isScrolledToStart ?? true),
-            widget.gradientFractionOnEnd > 0 && !(_isScrolledToEnd ?? false)),
+            widget.gradientFractionOnEnd > 0 && !(_isScrolledToEnd ?? false),),
       ).createShader(
         bounds.shift(Offset(-bounds.left, -bounds.top)),
         textDirection: Directionality.of(context),
       ),
-      child: widget.child,
       blendMode: BlendMode.dstIn,
+      child: widget.child,
     );
   }
 
@@ -339,7 +338,7 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
         (isStartEnabled ? Colors.transparent : Colors.white),
         Colors.white,
         Colors.white,
-        (isEndEnabled ? Colors.transparent : Colors.white)
+        (isEndEnabled ? Colors.transparent : Colors.white),
       ];
 }
 

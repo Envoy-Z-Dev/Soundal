@@ -33,7 +33,7 @@ List preferredLanguage = Hive.box('settings')
 List likedRadio =
     Hive.box('settings').get('likedRadio', defaultValue: []) as List;
 Map data = Hive.box('cache').get('homepage', defaultValue: {}) as Map;
-List lists = ['recent', 'playlist', ...?data['collections'] as List];
+List lists = ['recent', 'playlist', ...data['collections'] as List];
 
 class SpotifyHomePage extends StatefulWidget {
   @override
@@ -65,14 +65,14 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
     await callSpotifyFunction(
       function: (String accessToken) async => {
         receivedData =
-            await SpotifyApi().fetchHomePageData(accessToken, spotifyCountry)
+            await SpotifyApi().fetchHomePageData(accessToken, spotifyCountry),
       },
     );
 
     if ((receivedData['collections'] as List).isNotEmpty) {
       Hive.box('cache').put('homepage', receivedData);
       data = receivedData;
-      lists = ['recent', 'playlist', ...?data['collections'] as List];
+      lists = ['recent', 'playlist', ...data['collections'] as List];
       lists.insert((lists.length / 2).round(), 'likedArtists');
     } else {
       Logger.root.info(
@@ -405,7 +405,7 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                         fontSize: 11,
                                                         color: Colors.white38,
                                                       ),
-                                                    )
+                                                    ),
                                                 ],
                                               ),
                                             ),
@@ -453,7 +453,7 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                 );
                               },
                             ),
-                          )
+                          ),
                         ],
                       );
               }
@@ -741,7 +741,7 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                               'artist'
                                           ? [
                                               item['more_info']['query']
-                                                  .toString()
+                                                  .toString(),
                                             ]
                                           : [item['id'].toString()],
                                       language: item['more_info']['language']
@@ -998,8 +998,8 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                         TextOverflow.ellipsis,
                                                     style: const TextStyle(
                                                         color: Colors.white38,
-                                                        fontSize: 11),
-                                                  )
+                                                        fontSize: 11,),
+                                                  ),
                                               ],
                                             ),
                                           ),

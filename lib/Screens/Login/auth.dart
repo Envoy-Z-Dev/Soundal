@@ -108,7 +108,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 Navigator.pushReplacementNamed(context, '/');
               } else {
                 Logger.root.severe(
-                    'token received but retriveAccessToken returned no token');
+                    'token received but retriveAccessToken returned no token',);
               }
             }
           } else {
@@ -216,7 +216,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                           color: Colors.black26,
                                           blurRadius: 5.0,
                                           offset: Offset(0.0, 3.0),
-                                        )
+                                        ),
                                       ],
                                     ),
                                     child: Center(

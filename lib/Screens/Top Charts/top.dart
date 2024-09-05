@@ -154,7 +154,7 @@ Future<List> getChartDetails(String accessToken, String type) async {
         playlistCached = await SpotifyApi().getPlaylist(
           accessToken,
           playlistId,
-        )
+        ),
       },
     );
     playlistCache.add(playlistCached);
@@ -176,7 +176,7 @@ Future<List> getChartDetails(String accessToken, String type) async {
           playlistCached['tracks'] = await SpotifyApi().getAllTracksOfPlaylist(
             accessToken,
             playlistId,
-          )
+          ),
         },
       );
     }
@@ -296,14 +296,6 @@ class _TopPageState extends State<TopPage>
   @override
   bool get wantKeepAlive => true;
 
-  @override
-  void initState() {
-    super.initState();
-    /*ytMusic.init().then((value) {
-      getCachedData(widget.type);
-      scrapData(widget.type);
-    });*/
-  }
 
   @override
   Widget build(BuildContext context) {

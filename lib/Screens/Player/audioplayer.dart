@@ -532,7 +532,7 @@ class _PlayScreenState extends State<PlayScreen> {
                                         child: Text(
                                       AppLocalizations.of(context)!
                                           .addToPlaylist,
-                                    )),
+                                    ),),
                                   ],
                                 ),
                               ),
@@ -610,7 +610,7 @@ class _PlayScreenState extends State<PlayScreen> {
                                 ),
                               ),*/
                             ],
-                    )
+                    ),
                   ],
                 ),
                 body: LayoutBuilder(
@@ -708,7 +708,7 @@ class _PlayScreenState extends State<PlayScreen> {
                                 if (gradientType == 'fullMix')
                                   value?[1] ?? Colors.black
                                 else
-                                  Colors.black
+                                  Colors.black,
                               ]
                             : [
                                 value?[0] ?? const Color(0xfff5f9ff),
@@ -1041,7 +1041,7 @@ class NowPlayingStream extends StatelessWidget {
                               ),
                               tooltip: AppLocalizations.of(context)!.playing,
                               onPressed: () {},
-                            )
+                            ),
                           ]
                         : [
                             if (queue[index]
@@ -1081,7 +1081,7 @@ class NowPlayingStream extends StatelessWidget {
                                   'perma_url':
                                       queue[index].extras?['perma_url'],
                                 },
-                              )
+                              ),
                             ],
                             ReorderableDragStartListener(
                               key: Key(queue[index].id),
@@ -1347,7 +1347,7 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                         Colors.black,
                         Colors.black,
                         Colors.black,
-                        Colors.transparent
+                        Colors.transparent,
                       ],
                     ).createShader(
                       Rect.fromLTRB(0, 0, rect.width, rect.height),
@@ -2018,7 +2018,7 @@ class NameNControls extends StatelessWidget {
                               'title': mediaItem.album,
                               'image': mediaItem.artUri,
                               'perma_url':
-                                  'https://open.spotify.com/album/${mediaItem.extras?['album_id']}'
+                                  'https://open.spotify.com/album/${mediaItem.extras?['album_id']}',
                             },
                           ),
                         ),
@@ -2057,13 +2057,13 @@ class NameNControls extends StatelessWidget {
                         (String artist) => PopupMenuItem<String>(
                           value: context
                               .findAncestorWidgetOfExactType<PlayScreen>()!
-                              .createState()!
+                              .createState()
                               .audioHandler
                               .mediaItem
                               .value!
                               .extras?['spotify_artist_id'][context
                                   .findAncestorWidgetOfExactType<PlayScreen>()!
-                                  .createState()!
+                                  .createState()
                                   .audioHandler
                                   .mediaItem
                                   .value!
@@ -2086,7 +2086,7 @@ class NameNControls extends StatelessWidget {
                             ),
                           ),
                         ),
-                      )
+                      ),
                   ],
                   child: Center(
                     child: Padding(
@@ -2223,7 +2223,7 @@ class NameNControls extends StatelessWidget {
                                 },
                               ),
                               if (!offline)
-                                LikeButton(mediaItem: mediaItem, size: 25.0)
+                                LikeButton(mediaItem: mediaItem, size: 25.0),
                             ],
                           ),
                           ControlButtons(
@@ -2284,7 +2284,7 @@ class NameNControls extends StatelessWidget {
                                   data: MediaItemConverter.mediaItemToMap(
                                     mediaItem,
                                   ),
-                                )
+                                ),
                             ],
                           ),
                         ],

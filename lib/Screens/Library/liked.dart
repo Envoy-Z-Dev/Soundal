@@ -123,7 +123,7 @@ class _LikedSongsState extends State<LikedSongs>
         _albums.addEntries([MapEntry(element['album'].toString(), tempAlbum)]);
       } else {
         _albums.addEntries([
-          MapEntry(element['album'].toString(), [element as Map])
+          MapEntry(element['album'].toString(), [element as Map]),
         ]);
       }
 
@@ -134,7 +134,7 @@ class _LikedSongsState extends State<LikedSongs>
           _artists.addEntries([MapEntry(singleArtist, tempArtist)]);
         } else {
           _artists.addEntries([
-            MapEntry(singleArtist, [element])
+            MapEntry(singleArtist, [element]),
           ]);
         }
       });
@@ -145,7 +145,7 @@ class _LikedSongsState extends State<LikedSongs>
         _genres.addEntries([MapEntry(element['genre'].toString(), tempGenre)]);
       } else {
         _genres.addEntries([
-          MapEntry(element['genre'].toString(), [element])
+          MapEntry(element['genre'].toString(), [element]),
         ]);
       }
     }
@@ -171,7 +171,6 @@ class _LikedSongsState extends State<LikedSongs>
               .toUpperCase()
               .compareTo(b['title'].toString().toUpperCase()),
         );
-        break;
       case 1:
         _songs.sort(
           (a, b) => a['dateAdded']
@@ -179,7 +178,6 @@ class _LikedSongsState extends State<LikedSongs>
               .toUpperCase()
               .compareTo(b['dateAdded'].toString().toUpperCase()),
         );
-        break;
       case 2:
         _songs.sort(
           (a, b) => a['album']
@@ -187,7 +185,6 @@ class _LikedSongsState extends State<LikedSongs>
               .toUpperCase()
               .compareTo(b['album'].toString().toUpperCase()),
         );
-        break;
       case 3:
         _songs.sort(
           (a, b) => a['artist']
@@ -195,7 +192,6 @@ class _LikedSongsState extends State<LikedSongs>
               .toUpperCase()
               .compareTo(b['artist'].toString().toUpperCase()),
         );
-        break;
       case 4:
         _songs.sort(
           (a, b) => a['duration']
@@ -203,7 +199,6 @@ class _LikedSongsState extends State<LikedSongs>
               .toUpperCase()
               .compareTo(b['duration'].toString().toUpperCase()),
         );
-        break;
       default:
         _songs.sort(
           (b, a) => a['dateAdded']
@@ -508,7 +503,7 @@ class _LikedSongsState extends State<LikedSongs>
                                       selectMode.value = false;
                                     },
                                     icon: const Icon(Icons.clear_rounded),
-                                  )
+                                  ),
                                 ],
                               )
                             : child!;

@@ -4,8 +4,8 @@
 
 import 'dart:async';
 
-import 'level.dart';
-import 'logger.dart';
+import 'package:soundal/Helpers/level.dart';
+import 'package:soundal/Helpers/logger.dart';
 
 /// A log entry representation used to propagate information from [Logger] to
 /// individual handlers.
@@ -37,7 +37,7 @@ class LogRecord {
   final Zone? zone;
 
   LogRecord(this.level, this.message, this.loggerName,
-      [this.error, this.stackTrace, this.zone, this.object])
+      [this.error, this.stackTrace, this.zone, this.object,])
       : time = DateTime.now(),
         sequenceNumber = LogRecord._nextNumber++;
 

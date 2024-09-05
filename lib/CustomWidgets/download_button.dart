@@ -119,7 +119,7 @@ class _DownloadButtonState extends State<DownloadButton> {
                               );
                             },
                           ),
-                        )
+                        ),
                       ],
                     ),
                     onTap: () {

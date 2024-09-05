@@ -256,7 +256,7 @@ class HorizontalAlbumsList extends StatelessWidget {
                                     fontSize: 11,
                                     color: Colors.white38,
                                   ),
-                                )
+                                ),
                             ],
                           ),
                         ),

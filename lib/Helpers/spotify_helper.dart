@@ -4,7 +4,7 @@ import 'package:soundal/APIs/spotify_api.dart';
 import 'package:soundal/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'logging.dart';
+import 'package:soundal/Helpers/logging.dart';
 
 //final spotifyQueue = Queue(delay: const Duration(milliseconds: 350));
 
@@ -57,7 +57,7 @@ Future<void> callSpotifyFunction({
   String? accessToken;
   try {
     accessToken = await retriveAccessToken();
-  } on Exception catch (ex) {
+  } on Exception {
     accessToken = null;
   }
   if (accessToken != null && function != null) {

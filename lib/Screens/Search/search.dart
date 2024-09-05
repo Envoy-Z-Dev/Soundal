@@ -85,7 +85,7 @@ class _SearchPageState extends State<SearchPage> {
             accessToken,
             searchQuery: query == '' ? widget.query : query,
             count: 5,
-          )
+          ),
         },
       );
 
@@ -103,7 +103,7 @@ class _SearchPageState extends State<SearchPage> {
             searchQuery: query == '' ? widget.query : query,
             searchType: 'album',
             count: 5,
-          ))?['albums']
+          ))['albums'],
         },
       );
 
@@ -123,7 +123,7 @@ class _SearchPageState extends State<SearchPage> {
             searchQuery: query == '' ? widget.query : query,
             searchType: 'playlist',
             count: 5,
-          ))?['playlists']
+          ))['playlists'],
         },
       );
 
@@ -141,7 +141,7 @@ class _SearchPageState extends State<SearchPage> {
             searchQuery: query == '' ? widget.query : query,
             searchType: 'artist',
             count: 5,
-          ))?['artists']
+          ))['artists'],
         },
       );
 
@@ -743,7 +743,7 @@ class _SearchPageState extends State<SearchPage> {
                                                         'Songs') {
                                                       PlayerInvoke.init(
                                                         songsList: [
-                                                          value[index]
+                                                          value[index],
                                                         ],
                                                         index: 0,
                                                         isOffline: false,

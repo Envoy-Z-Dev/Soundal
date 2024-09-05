@@ -88,7 +88,7 @@ class _SettingPageState extends State<SettingPage>
     'Haryanvi',
     'Rajasthani',
     'Odia',
-    'Assamese'
+    'Assamese',
   ];
   List miniButtonsOrder = Hive.box('settings').get(
     'miniButtonsOrder',
@@ -1315,8 +1315,8 @@ class _SettingPageState extends State<SettingPage>
                               MyApp.temporaryPath,
                               'just_audio_cache',
                               'remote',
-                              'cache'
-                            ])).listSync()) {
+                              'cache',
+                            ]),).listSync()) {
                               await file.delete(recursive: true);
                             }
                             setState(
@@ -1341,7 +1341,7 @@ class _SettingPageState extends State<SettingPage>
                             final Directory tempDir =
                                 await getTemporaryDirectory();
                             final files = <XFile>[
-                              XFile('${tempDir.path}/logs/logs.txt')
+                              XFile('${tempDir.path}/logs/logs.txt'),
                             ];
                             Share.shareXFiles(files);
                           },
@@ -1398,7 +1398,6 @@ class _SettingPageState extends State<SettingPage>
                           dense: true,
                           onTap: () {
                             showModalBottomSheet(
-                              isDismissible: true,
                               backgroundColor: Colors.transparent,
                               context: context,
                               builder: (BuildContext context) {
@@ -2237,7 +2236,6 @@ class SpotifyCountry {
     }
 
     await showModalBottomSheet(
-      isDismissible: true,
       backgroundColor: Colors.transparent,
       context: context,
       builder: (BuildContext context) {

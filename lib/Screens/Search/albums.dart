@@ -83,10 +83,9 @@ class _AlbumSearchPageState extends State<AlbumSearchPage> {
                       loading = false;
                     }),
                   },
-                )
+                ),
           },
         );
-        break;
       case 'Albums':
         callSpotifyFunction(
           function: (String accessToken) async => {
@@ -115,10 +114,9 @@ class _AlbumSearchPageState extends State<AlbumSearchPage> {
                       loading = false;
                     }),
                   },
-                )
+                ),
           },
         );
-        break;
       case 'Artists':
         callSpotifyFunction(
           function: (String accessToken) async => {
@@ -152,10 +150,9 @@ class _AlbumSearchPageState extends State<AlbumSearchPage> {
                       loading = false;
                     }),
                   },
-                )
+                ),
           },
         );
-        break;
       default:
         break;
     }

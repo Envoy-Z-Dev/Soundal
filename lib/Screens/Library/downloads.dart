@@ -102,7 +102,7 @@ class _DownloadsState extends State<Downloads>
               .addEntries([MapEntry(element['album'].toString(), tempAlbum)]);
         } else {
           _albums.addEntries([
-            MapEntry(element['album'].toString(), [element as Map])
+            MapEntry(element['album'].toString(), [element as Map]),
           ]);
         }
 
@@ -113,7 +113,7 @@ class _DownloadsState extends State<Downloads>
               .addEntries([MapEntry(element['artist'].toString(), tempArtist)]);
         } else {
           _artists.addEntries([
-            MapEntry(element['artist'].toString(), [element])
+            MapEntry(element['artist'].toString(), [element]),
           ]);
         }
 
@@ -124,7 +124,7 @@ class _DownloadsState extends State<Downloads>
               .addEntries([MapEntry(element['genre'].toString(), tempGenre)]);
         } else {
           _genres.addEntries([
-            MapEntry(element['genre'].toString(), [element])
+            MapEntry(element['genre'].toString(), [element]),
           ]);
         }
       } catch (e) {
@@ -157,7 +157,6 @@ class _DownloadsState extends State<Downloads>
               .toUpperCase()
               .compareTo(b['title'].toString().toUpperCase()),
         );
-        break;
       case 1:
         _songs.sort(
           (a, b) => a['dateAdded']
@@ -165,7 +164,6 @@ class _DownloadsState extends State<Downloads>
               .toUpperCase()
               .compareTo(b['dateAdded'].toString().toUpperCase()),
         );
-        break;
       case 2:
         _songs.sort(
           (a, b) => a['album']
@@ -173,7 +171,6 @@ class _DownloadsState extends State<Downloads>
               .toUpperCase()
               .compareTo(b['album'].toString().toUpperCase()),
         );
-        break;
       case 3:
         _songs.sort(
           (a, b) => a['artist']
@@ -181,7 +178,6 @@ class _DownloadsState extends State<Downloads>
               .toUpperCase()
               .compareTo(b['artist'].toString().toUpperCase()),
         );
-        break;
       case 4:
         _songs.sort(
           (a, b) => a['duration']
@@ -189,7 +185,6 @@ class _DownloadsState extends State<Downloads>
               .toUpperCase()
               .compareTo(b['duration'].toString().toUpperCase()),
         );
-        break;
       default:
         _songs.sort(
           (b, a) => a['dateAdded']
@@ -220,7 +215,6 @@ class _DownloadsState extends State<Downloads>
           (a, b) =>
               a.toString().toUpperCase().compareTo(b.toString().toUpperCase()),
         );
-        break;
       case 1:
         _sortedAlbumKeysList.sort(
           (b, a) =>
@@ -234,7 +228,6 @@ class _DownloadsState extends State<Downloads>
           (b, a) =>
               a.toString().toUpperCase().compareTo(b.toString().toUpperCase()),
         );
-        break;
       case 2:
         _sortedAlbumKeysList
             .sort((b, a) => _albums[a]!.length.compareTo(_albums[b]!.length));
@@ -242,7 +235,6 @@ class _DownloadsState extends State<Downloads>
             .sort((b, a) => _artists[a]!.length.compareTo(_artists[b]!.length));
         _sortedGenreKeysList
             .sort((b, a) => _genres[a]!.length.compareTo(_genres[b]!.length));
-        break;
       case 3:
         _sortedAlbumKeysList
             .sort((a, b) => _albums[a]!.length.compareTo(_albums[b]!.length));
@@ -250,7 +242,6 @@ class _DownloadsState extends State<Downloads>
             .sort((a, b) => _artists[a]!.length.compareTo(_artists[b]!.length));
         _sortedGenreKeysList
             .sort((a, b) => _genres[a]!.length.compareTo(_genres[b]!.length));
-        break;
       default:
         _sortedAlbumKeysList
             .sort((b, a) => _albums[a]!.length.compareTo(_albums[b]!.length));

@@ -67,13 +67,13 @@ class SpotifyApi {
         'code': code,
         'redirect_uri': redirectUrl,
         'client_id': clientID,
-        'code_verifier': codeVerifier
+        'code_verifier': codeVerifier,
       };
     } else if (refreshToken != null) {
       body = {
         'grant_type': 'refresh_token',
         'refresh_token': refreshToken,
-        'client_id': clientID
+        'client_id': clientID,
       };
       headers = {'Content-Type': 'application/x-www-form-urlencoded'};
     }
@@ -109,7 +109,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       final List<Map> songsData = [];
@@ -123,7 +123,7 @@ class SpotifyApi {
           final cachedPlaylist = playlistCache.isNotEmpty
               ? playlistCache
                   .where((x) => x['id'] == element['id'])
-                  ?.firstOrNull
+                  .firstOrNull
               : null;
 
           Map playlistObject = {
@@ -180,13 +180,13 @@ class SpotifyApi {
   Future<dynamic> getPlaylist(String accessToken, String playlistId) async {
     try {
       final Uri path = Uri.parse(
-          '$spotifyApiBaseUrl$spotifyPlaylistTrackEndpoint/$playlistId');
+          '$spotifyApiBaseUrl$spotifyPlaylistTrackEndpoint/$playlistId',);
 
       final response = await get(
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       Map songsData = {};
@@ -198,7 +198,7 @@ class SpotifyApi {
         ) as List;
         final element = result;
         final cachedPlaylist = playlistCache.isNotEmpty
-            ? playlistCache.where((x) => x['id'] == element['id'])?.firstOrNull
+            ? playlistCache.where((x) => x['id'] == element['id']).firstOrNull
             : null;
 
         Map playlistObject = {
@@ -291,7 +291,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
 
@@ -315,7 +315,7 @@ class SpotifyApi {
       path,
       headers: {
         'Authorization': 'Bearer $accessToken',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
       },
     );
 
@@ -338,7 +338,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
 
@@ -353,7 +353,7 @@ class SpotifyApi {
           final cachedPlaylist = playlistCache.isNotEmpty
               ? playlistCache
                   .where((x) => x['id'] == element['id'])
-                  ?.firstOrNull
+                  .firstOrNull
               : null;
 
           Map playlistObject = {
@@ -416,7 +416,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -462,7 +462,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -491,7 +491,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -544,7 +544,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -572,7 +572,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -605,7 +605,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -634,7 +634,7 @@ class SpotifyApi {
         path,
         headers: {
           'Authorization': 'Bearer $accessToken',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       );
       if (response.statusCode == 200) {
@@ -643,16 +643,12 @@ class SpotifyApi {
         switch (searchType) {
           case 'track':
             res['tracks'] = result['tracks']['items'];
-            break;
           case 'album':
             res['albums'] = result['albums']['items'];
-            break;
           case 'playlist':
             res['playlists'] = result['playlists']['items'];
-            break;
           case 'artist':
             res['artists'] = result['artists']['items'];
-            break;
         }
       }
       return res;

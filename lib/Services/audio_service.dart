@@ -330,7 +330,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
             searchQuery:
                 "${newData['title']} ${newData['artist']} ${newData['album']}",
             count: 1,
-          )
+          ),
         },
       );
     } else {
@@ -340,8 +340,8 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
             await SpotifyApi().getTrackDetails(
               accessToken,
               res.toString(),
-            )
-          ]
+            ),
+          ],
         },
       );
     }
@@ -572,7 +572,6 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
       );
       _player = AudioPlayer(
         audioPipeline: pipeline,
-        androidOffloadSchedulingEnabled: false,
       );
 
       // Enable equalizer if used earlier
@@ -591,7 +590,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
       );
     } else {
       Logger.root.info('starting without eq pipeline');
-      _player = AudioPlayer(androidOffloadSchedulingEnabled: false);
+      _player = AudioPlayer();
     }
   }
 
@@ -868,7 +867,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
           (e) => {
             'centerFrequency': e.centerFrequency,
             'gain': e.gain,
-            'index': e.index
+            'index': e.index,
           },
         )
         .toList();
@@ -876,7 +875,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
     return {
       'maxDecibels': _equalizerParams!.maxDecibels,
       'minDecibels': _equalizerParams!.minDecibels,
-      'bands': bandList
+      'bands': bandList,
     };
   }
 
@@ -913,13 +912,10 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
     switch (button) {
       case MediaButton.media:
         _handleMediaActionPressed();
-        break;
       case MediaButton.next:
         await skipToNext();
-        break;
       case MediaButton.previous:
         await skipToPrevious();
-        break;
     }
   }
 
@@ -938,13 +934,10 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
             } else {
               play();
             }
-            break;
           case 2:
             skipToNext();
-            break;
           case 3:
             skipToPrevious();
-            break;
           default:
             break;
         }

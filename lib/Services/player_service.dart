@@ -256,13 +256,10 @@ class PlayerInvoke {
       switch (repeatMode) {
         case 'None':
           audioHandler.setRepeatMode(AudioServiceRepeatMode.none);
-          break;
         case 'All':
           audioHandler.setRepeatMode(AudioServiceRepeatMode.all);
-          break;
         case 'One':
           audioHandler.setRepeatMode(AudioServiceRepeatMode.one);
-          break;
         default:
           break;
       }

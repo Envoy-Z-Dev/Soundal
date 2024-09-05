@@ -84,7 +84,7 @@ class _SongsListPageState extends State<SongsListPage> {
                 searchQuery: widget.listItem['id'].toString(),
                 count: 25,
                 page: page,
-              )
+              ),
             },
           );
 
@@ -95,7 +95,7 @@ class _SongsListPageState extends State<SongsListPage> {
                 searchQuery: widget.listItem['id'].toString(),
                 count: 25,
                 page: page,
-              )
+              ),
             },
           );
 
@@ -122,7 +122,7 @@ class _SongsListPageState extends State<SongsListPage> {
               receivedData = await SpotifyApi().getAlbumDetails(
                 accessToken,
                 widget.listItem['id'].toString(),
-              )
+              ),
             },
           );
           await callSpotifyFunction(
@@ -130,7 +130,7 @@ class _SongsListPageState extends State<SongsListPage> {
               receivedData = await SpotifyApi().getAlbumDetails(
                 accessToken,
                 widget.listItem['id'].toString(),
-              )
+              ),
             },
           );
           final spotifyTracks = [];
@@ -160,7 +160,7 @@ class _SongsListPageState extends State<SongsListPage> {
                 playlistCached = await SpotifyApi().getPlaylist(
                   accessToken,
                   widget.listItem['id'].toString(),
-                )
+                ),
               },
             );
           }
@@ -177,7 +177,7 @@ class _SongsListPageState extends State<SongsListPage> {
                       await SpotifyApi().getAllTracksOfPlaylist(
                     accessToken,
                     widget.listItem['id'].toString(),
-                  )
+                  ),
                 },
               );
             }
@@ -416,7 +416,7 @@ class _SongsListPageState extends State<SongsListPage> {
                                 );
                               },
                             );
-                          })
+                          }),
                         ]),
                       ),
                     ),

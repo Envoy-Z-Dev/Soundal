@@ -73,7 +73,7 @@ class _AnimatedTextState extends State<AnimatedText>
     _animationController.addListener(() {
       if (_scrollController.hasClients) {
         _scrollController.jumpTo(
-            _animation.value * _scrollController.position.maxScrollExtent);
+            _animation.value * _scrollController.position.maxScrollExtent,);
       }
     });
 
@@ -115,7 +115,7 @@ class _AnimatedTextState extends State<AnimatedText>
           text: span,
         );
 
-        tp.layout(maxWidth: double.infinity);
+        tp.layout();
 
         if (tp.width > constraints.maxWidth) {
           final scrollingText = SingleChildScrollView(

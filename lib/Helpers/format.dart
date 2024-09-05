@@ -45,7 +45,6 @@ class FormatResponse {
         case 'show':
         case 'mix':
           response = await formatSingleSongResponse(responseList[i] as Map);
-          break;
         default:
           break;
       }
@@ -191,7 +190,7 @@ class FormatResponse {
             : response['more_info']['music'],
         'image': getImageUrl(response['image'].toString()),
         'perma_url': response['perma_url'],
-        'url': decode(response['encrypted_media_url'].toString())
+        'url': decode(response['encrypted_media_url'].toString()),
       };
     } catch (e) {
       Logger.root.severe('Error inside FormatSingleAlbumSongResponse: $e');
@@ -209,16 +208,12 @@ class FormatResponse {
       switch (type) {
         case 'album':
           response = await formatSingleAlbumResponse(responseList[i] as Map);
-          break;
         case 'artist':
           response = await formatSingleArtistResponse(responseList[i] as Map);
-          break;
         case 'playlist':
           response = await formatSinglePlaylistResponse(responseList[i] as Map);
-          break;
         case 'show':
           response = await formatSingleShowResponse(responseList[i] as Map);
-          break;
       }
       if (response!.containsKey('Error')) {
         Logger.root.severe(
@@ -508,7 +503,7 @@ class FormatResponse {
         'radio',
         'city_mod',
         'artist_recos',
-        ...promoList
+        ...promoList,
       ];
       data['collections_temp'] = promoListTemp;
     } catch (e) {
@@ -684,7 +679,7 @@ class FormatResponse {
             'No results for ${element['name']} ${artists.join(', ')} ${element['album']?['name']} youtube search',
           );
         } finally {
-          if (youtubeId != 'null' && youtubeId != null) {
+          if (youtubeId != 'null') {
             await MyApp.hiveMutex.protect(() async {
               if (!Hive.isBoxOpen('spoty2youtube')) {
                 Hive.init(jsonObject['path'].toString());

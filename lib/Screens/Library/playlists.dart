@@ -539,12 +539,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                   playlistDetails[name] == null
                                                       ? playlistDetails.addAll({
                                                           name: {
-                                                            'name': value.trim()
-                                                          }
+                                                            'name': value.trim(),
+                                                          },
                                                         })
                                                       : playlistDetails[name]
                                                           .addAll({
-                                                          'name': value.trim()
+                                                          'name': value.trim(),
                                                         });
 
                                                   await settingsBox.put(
@@ -588,13 +588,13 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                         name: {
                                                           'name': controller
                                                               .text
-                                                              .trim()
-                                                        }
+                                                              .trim(),
+                                                        },
                                                       })
                                                     : playlistDetails[name]
                                                         .addAll({
                                                         'name': controller.text
-                                                            .trim()
+                                                            .trim(),
                                                       });
 
                                                 await settingsBox.put(
@@ -728,7 +728,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                           },
                         );
                       },
-                    )
+                    ),
                   ],
                 ),
               ),

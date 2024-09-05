@@ -12,7 +12,7 @@ class YtMusicService {
   static const baseApiEndpoint = '/youtubei/v1/';
   static const ytmParams = {
     'alt': 'json',
-    'key': 'AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30'
+    'key': 'AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30',
   };
   static const userAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0';
@@ -36,7 +36,7 @@ class YtMusicService {
     'community_playlists',
     'featured_playlists',
     'songs',
-    'videos'
+    'videos',
   ];
   static const scopes = ['library', 'uploads'];
 
@@ -60,7 +60,7 @@ class YtMusicService {
       'content-type': 'application/json',
       'content-encoding': 'gzip',
       'origin': httpsYtmDomain,
-      'cookie': 'CONSENT=YES+1'
+      'cookie': 'CONSENT=YES+1',
     };
   }
 
@@ -94,8 +94,8 @@ class YtMusicService {
     return {
       'context': {
         'client': {'clientName': 'WEB_REMIX', 'clientVersion': '1.$date.01.00'},
-        'user': {}
-      }
+        'user': {},
+      },
     };
   }
 
@@ -122,7 +122,7 @@ class YtMusicService {
       'videos': 'Q',
       'albums': 'Y',
       'artists': 'g',
-      'playlists': 'o'
+      'playlists': 'o',
     };
     return filterParams[filter];
   }
@@ -247,7 +247,7 @@ class YtMusicService {
           'tabs',
           tabIndex,
           'tabRenderer',
-          'content'
+          'content',
         ]) as Map<String, dynamic>;
       } else {
         Logger.root.info('tabbedSearchResultsRenderer not found');
@@ -274,7 +274,7 @@ class YtMusicService {
             'title',
             'runs',
             0,
-            'text'
+            'text',
           ]).toString();
         }
 
@@ -289,7 +289,7 @@ class YtMusicService {
               'thumbnail',
               'musicThumbnailRenderer',
               'thumbnail',
-              'thumbnails'
+              'thumbnails',
             ]) as List)
                 .map((e) => e['url'])
                 .toList();
@@ -301,7 +301,7 @@ class YtMusicService {
               'text',
               'runs',
               0,
-              'text'
+              'text',
             ]).toString();
             final List subtitleList = nav(childItem, [
               'musicResponsiveListItemRenderer',
@@ -309,7 +309,7 @@ class YtMusicService {
               1,
               'musicResponsiveListItemFlexColumnRenderer',
               'text',
-              'runs'
+              'runs',
             ]) as List;
             // Logger.root.info('Looping child elements of "$title"');
             int count = 0;
@@ -364,21 +364,21 @@ class YtMusicService {
               id = nav(childItem, [
                 'musicResponsiveListItemRenderer',
                 'playlistItemData',
-                'videoId'
+                'videoId',
               ]).toString();
             } else {
               id = nav(
                       nav(
                           nav(childItem, [
                             'musicResponsiveListItemRenderer',
-                            'flexColumns'
+                            'flexColumns',
                           ])[0],
                           [
                             'musicResponsiveListItemFlexColumnRenderer',
                             'text',
-                            'runs'
+                            'runs',
                           ])[0],
-                      ['navigationEndpoint', 'watchEndpoint', 'videoId'])
+                      ['navigationEndpoint', 'watchEndpoint', 'videoId'],)
                   .toString();
             }
             sectionSearchResults.add({
@@ -403,7 +403,7 @@ class YtMusicService {
             'thumbnail',
             'musicThumbnailRenderer',
             'thumbnail',
-            'thumbnails'
+            'thumbnails',
           ]) as List)
               .map((e) => e['url'])
               .toList();
@@ -526,7 +526,7 @@ class YtMusicService {
             'contents',
             0,
             'searchSuggestionsSectionRenderer',
-            'contents'
+            'contents',
           ]) as List? ??
           [];
       final List<String> results = [];
@@ -536,7 +536,7 @@ class YtMusicService {
             'searchSuggestionRenderer',
             'navigationEndpoint',
             'searchEndpoint',
-            'query'
+            'query',
           ]).toString(),
         );
       }
@@ -626,7 +626,7 @@ class YtMusicService {
         'title',
         'runs',
         0,
-        'text'
+        'text',
       ]) as String?;
       final String subtitle = (nav(response, [
                 'header',
@@ -644,7 +644,7 @@ class YtMusicService {
         'description',
         'runs',
         0,
-        'text'
+        'text',
       ]) as String?;
       final List images = (nav(response, [
         'header',
@@ -652,7 +652,7 @@ class YtMusicService {
         'thumbnail',
         'croppedSquareThumbnailRenderer',
         'thumbnail',
-        'thumbnails'
+        'thumbnails',
       ]) as List)
           .map((e) => e['url'])
           .toList();
@@ -667,7 +667,7 @@ class YtMusicService {
             'contents',
             0,
             'musicPlaylistShelfRenderer',
-            'contents'
+            'contents',
           ]) as List? ??
           [];
       final List<Map> songResults = [];
@@ -675,7 +675,7 @@ class YtMusicService {
         final String id = nav(item, [
           'musicResponsiveListItemRenderer',
           'playlistItemData',
-          'videoId'
+          'videoId',
         ]).toString();
         final String image = nav(item, [
           'musicResponsiveListItemRenderer',
@@ -684,7 +684,7 @@ class YtMusicService {
           'thumbnail',
           'thumbnails',
           0,
-          'url'
+          'url',
         ]).toString();
         final String title = nav(item, [
           'musicResponsiveListItemRenderer',
@@ -694,7 +694,7 @@ class YtMusicService {
           'text',
           'runs',
           0,
-          'text'
+          'text',
         ]).toString();
         final List subtitleList = nav(item, [
           'musicResponsiveListItemRenderer',
@@ -702,7 +702,7 @@ class YtMusicService {
           1,
           'musicResponsiveListItemFlexColumnRenderer',
           'text',
-          'runs'
+          'runs',
         ]) as List;
         int count = 0;
         String year = '';
@@ -1035,7 +1035,7 @@ class YtMusicService {
             'watchEndpointMusicConfig': {
               'hasPersistentPlaylistPanel': true,
               'musicVideoType': 'MUSIC_VIDEO_TYPE_ATV;',
-            }
+            },
           };
         }
       }

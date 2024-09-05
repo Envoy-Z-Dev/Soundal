@@ -15,7 +15,7 @@ class PlaylistPopupMenu extends StatefulWidget {
       {super.key,
       required this.data,
       required this.title,
-      required this.showSave});
+      required this.showSave,});
 
   @override
   _PlaylistPopupMenuState createState() => _PlaylistPopupMenuState();

@@ -100,7 +100,7 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
               ),
               const SizedBox(width: 10.0),
               Expanded(
-                  child: Text(AppLocalizations.of(context)!.addToPlaylist)),
+                  child: Text(AppLocalizations.of(context)!.addToPlaylist),),
             ],
           ),
         ),
@@ -164,7 +164,6 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
         switch (value) {
           case 3:
             Share.share(widget.data['perma_url'].toString());
-            break;
 
           case 4:
             Navigator.push(
@@ -178,24 +177,19 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
                     'title': mediaItem.album,
                     'image': mediaItem.artUri,
                     'perma_url':
-                        'https://open.spotify.com/album/${mediaItem.extras?['album_id']}'
+                        'https://open.spotify.com/album/${mediaItem.extras?['album_id']}',
                   },
                 ),
               ),
             );
-            break;
           case 6:
             widget.deleteLiked!(widget.data);
-            break;
           case 0:
             AddToPlaylist().addToPlaylist(context, mediaItem);
-            break;
           case 1:
             addToNowPlaying(context: context, mediaItem: mediaItem);
-            break;
           case 2:
             playNext(mediaItem, context);
-            break;
           default:
             Navigator.push(
               context,
@@ -205,7 +199,7 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
                   data: {
                     'id': value.toString(),
                     'title': (widget.data['artist'].split(', ') as List)[
-                        widget.data['spotify_artist_id'].indexOf(value) as int]
+                        widget.data['spotify_artist_id'].indexOf(value) as int],
                   },
                 ),
               ),

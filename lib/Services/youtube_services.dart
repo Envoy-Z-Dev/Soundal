@@ -15,11 +15,11 @@ class YouTubeServices {
     'search': '/results',
     'channel': '/channel',
     'music': '/music',
-    'playlist': '/playlist'
+    'playlist': '/playlist',
   };
   static const Map<String, String> headers = {
     'User-Agent':
-        'Mozilla/5.0 (Windows NT 10.0; rv:96.0) Gecko/20100101 Firefox/96.0'
+        'Mozilla/5.0 (Windows NT 10.0; rv:96.0) Gecko/20100101 Firefox/96.0',
   };
   final YoutubeExplode yt = YoutubeExplode();
 
@@ -33,7 +33,7 @@ class YouTubeServices {
       final Video result = await yt.videos.get(id);
       return result;
     } catch (e) {
-      if (e.toString().contains(('Invalid YouTube video ID or URL'))) {
+      if (e.toString().contains('Invalid YouTube video ID or URL')) {
         //Remove video from cache as it's invalid
         if (path != null) {
           await MyApp.hiveMutex.protect(() async {
@@ -45,7 +45,7 @@ class YouTubeServices {
         await Hive.openBox('spoty2youtube');
         Hive.box('spoty2youtube').delete(
           Hive.box('spoty2youtube').keys.firstWhere(
-              (element) => Hive.box('spoty2youtube').get(element) == id),
+              (element) => Hive.box('spoty2youtube').get(element) == id,),
         );
       }
       Logger.root.severe('Error while getting video from id', e);
