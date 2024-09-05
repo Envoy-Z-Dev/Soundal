@@ -529,10 +529,11 @@ class _PlayScreenState extends State<PlayScreen> {
                                     ),
                                     const SizedBox(width: 10.0),
                                     Expanded(
-                                        child: Text(
-                                      AppLocalizations.of(context)!
-                                          .addToPlaylist,
-                                    ),),
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .addToPlaylist,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

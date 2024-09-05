@@ -296,7 +296,6 @@ class _TopPageState extends State<TopPage>
   @override
   bool get wantKeepAlive => true;
 
-
   @override
   Widget build(BuildContext context) {
     super.build(context);

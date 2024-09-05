@@ -301,8 +301,9 @@ class _FadingEdgeScrollViewState extends State<FadingEdgeScrollView>
           1,
         ],
         colors: _getColors(
-            widget.gradientFractionOnStart > 0 && !(_isScrolledToStart ?? true),
-            widget.gradientFractionOnEnd > 0 && !(_isScrolledToEnd ?? false),),
+          widget.gradientFractionOnStart > 0 && !(_isScrolledToStart ?? true),
+          widget.gradientFractionOnEnd > 0 && !(_isScrolledToEnd ?? false),
+        ),
       ).createShader(
         bounds.shift(Offset(-bounds.left, -bounds.top)),
         textDirection: Directionality.of(context),

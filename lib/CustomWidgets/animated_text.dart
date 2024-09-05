@@ -73,7 +73,8 @@ class _AnimatedTextState extends State<AnimatedText>
     _animationController.addListener(() {
       if (_scrollController.hasClients) {
         _scrollController.jumpTo(
-            _animation.value * _scrollController.position.maxScrollExtent,);
+          _animation.value * _scrollController.position.maxScrollExtent,
+        );
       }
     });
 

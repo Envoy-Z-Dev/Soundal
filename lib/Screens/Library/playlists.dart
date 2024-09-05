@@ -539,7 +539,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                   playlistDetails[name] == null
                                                       ? playlistDetails.addAll({
                                                           name: {
-                                                            'name': value.trim(),
+                                                            'name':
+                                                                value.trim(),
                                                           },
                                                         })
                                                       : playlistDetails[name]

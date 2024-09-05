@@ -997,8 +997,9 @@ class _SpotifyHomePageState extends State<SpotifyHomePage>
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: const TextStyle(
-                                                        color: Colors.white38,
-                                                        fontSize: 11,),
+                                                      color: Colors.white38,
+                                                      fontSize: 11,
+                                                    ),
                                                   ),
                                               ],
                                             ),

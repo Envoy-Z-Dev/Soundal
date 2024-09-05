@@ -67,7 +67,8 @@ class _AboutScreenState extends State<AboutScreen> {
                       child: const SizedBox(
                         width: 150,
                         child: Image(
-                            image: AssetImage('assets/ic_launcher_round.png'),),
+                          image: AssetImage('assets/ic_launcher_round.png'),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 20),

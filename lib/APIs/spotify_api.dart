@@ -121,9 +121,7 @@ class SpotifyApi {
         ) as List;
         for (final element in result['items'] as List) {
           final cachedPlaylist = playlistCache.isNotEmpty
-              ? playlistCache
-                  .where((x) => x['id'] == element['id'])
-                  .firstOrNull
+              ? playlistCache.where((x) => x['id'] == element['id']).firstOrNull
               : null;
 
           Map playlistObject = {
@@ -180,7 +178,8 @@ class SpotifyApi {
   Future<dynamic> getPlaylist(String accessToken, String playlistId) async {
     try {
       final Uri path = Uri.parse(
-          '$spotifyApiBaseUrl$spotifyPlaylistTrackEndpoint/$playlistId',);
+        '$spotifyApiBaseUrl$spotifyPlaylistTrackEndpoint/$playlistId',
+      );
 
       final response = await get(
         path,
@@ -351,9 +350,7 @@ class SpotifyApi {
         final result = jsonDecode(response.body);
         for (final element in result['playlists']['items'] as List) {
           final cachedPlaylist = playlistCache.isNotEmpty
-              ? playlistCache
-                  .where((x) => x['id'] == element['id'])
-                  .firstOrNull
+              ? playlistCache.where((x) => x['id'] == element['id']).firstOrNull
               : null;
 
           Map playlistObject = {

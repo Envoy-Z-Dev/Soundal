@@ -1311,12 +1311,14 @@ class _SettingPageState extends State<SettingPage>
                           onTap: () async {
                             //TODO: clear all cached songs
                             Hive.box('cache').clear();
-                            for (final file in Directory(path.joinAll([
-                              MyApp.temporaryPath,
-                              'just_audio_cache',
-                              'remote',
-                              'cache',
-                            ]),).listSync()) {
+                            for (final file in Directory(
+                              path.joinAll([
+                                MyApp.temporaryPath,
+                                'just_audio_cache',
+                                'remote',
+                                'cache',
+                              ]),
+                            ).listSync()) {
                               await file.delete(recursive: true);
                             }
                             setState(

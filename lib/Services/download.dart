@@ -313,8 +313,12 @@ class Download with ChangeNotifier {
       lastDownloadId = data['id'].toString();
       notifyListeners();
     } else {
-      downloadSong(context, path.dirname(cacheFile.path),
-          path.basename(cacheFile.path), data,);
+      downloadSong(
+        context,
+        path.dirname(cacheFile.path),
+        path.basename(cacheFile.path),
+        data,
+      );
     }
   }
 

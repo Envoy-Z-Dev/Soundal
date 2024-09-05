@@ -45,7 +45,8 @@ class YouTubeServices {
         await Hive.openBox('spoty2youtube');
         Hive.box('spoty2youtube').delete(
           Hive.box('spoty2youtube').keys.firstWhere(
-              (element) => Hive.box('spoty2youtube').get(element) == id,),
+                (element) => Hive.box('spoty2youtube').get(element) == id,
+              ),
         );
       }
       Logger.root.severe('Error while getting video from id', e);

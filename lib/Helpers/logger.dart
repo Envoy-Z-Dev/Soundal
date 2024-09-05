@@ -140,7 +140,8 @@ class Logger {
     }
     if (parent == null && value == null) {
       throw UnsupportedError(
-          'Cannot set the level to `null` on a logger with no parent.',);
+        'Cannot set the level to `null` on a logger with no parent.',
+      );
     }
     final isLevelChanged = _level != value;
     _level = value;
@@ -202,8 +203,13 @@ class Logger {
   /// was made. This can be advantageous if a log listener wants to handler
   /// records of different zones differently (e.g. group log records by HTTP
   /// request if each HTTP request handler runs in it's own zone).
-  void log(Level logLevel, Object? message,
-      [Object? error, StackTrace? stackTrace, Zone? zone,]) {
+  void log(
+    Level logLevel,
+    Object? message, [
+    Object? error,
+    StackTrace? stackTrace,
+    Zone? zone,
+  ]) {
     Object? object;
     if (isLoggable(logLevel)) {
       if (message is Function) {

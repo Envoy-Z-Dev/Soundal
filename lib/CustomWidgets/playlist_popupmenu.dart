@@ -11,11 +11,12 @@ class PlaylistPopupMenu extends StatefulWidget {
   final List data;
   final String title;
   final bool showSave;
-  const PlaylistPopupMenu(
-      {super.key,
-      required this.data,
-      required this.title,
-      required this.showSave,});
+  const PlaylistPopupMenu({
+    super.key,
+    required this.data,
+    required this.title,
+    required this.showSave,
+  });
 
   @override
   _PlaylistPopupMenuState createState() => _PlaylistPopupMenuState();

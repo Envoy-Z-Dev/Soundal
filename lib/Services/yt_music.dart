@@ -368,18 +368,18 @@ class YtMusicService {
               ]).toString();
             } else {
               id = nav(
-                      nav(
-                          nav(childItem, [
-                            'musicResponsiveListItemRenderer',
-                            'flexColumns',
-                          ])[0],
-                          [
-                            'musicResponsiveListItemFlexColumnRenderer',
-                            'text',
-                            'runs',
-                          ])[0],
-                      ['navigationEndpoint', 'watchEndpoint', 'videoId'],)
-                  .toString();
+                nav(
+                    nav(childItem, [
+                      'musicResponsiveListItemRenderer',
+                      'flexColumns',
+                    ])[0],
+                    [
+                      'musicResponsiveListItemFlexColumnRenderer',
+                      'text',
+                      'runs',
+                    ])[0],
+                ['navigationEndpoint', 'watchEndpoint', 'videoId'],
+              ).toString();
             }
             sectionSearchResults.add({
               'id': id,
