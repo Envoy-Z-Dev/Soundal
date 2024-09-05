@@ -6,8 +6,6 @@ import 'package:async/async.dart';
 import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:crypto/crypto.dart';
-import 'package:flutter/foundation.dart';
-import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path/path.dart' as path;
@@ -17,7 +15,6 @@ import 'package:soundal/APIs/spotify_api.dart';
 import 'package:soundal/Helpers/just_audio.dart';
 //import 'package:just_audio/just_audio.dart';
 import 'package:soundal/Helpers/logging.dart';
-import 'package:soundal/Helpers/lyrics.dart';
 import 'package:soundal/Helpers/mediaitem_converter.dart';
 import 'package:soundal/Helpers/playlist.dart';
 import 'package:soundal/Helpers/spotify_helper.dart';
@@ -1005,7 +1002,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   }
 
   Future<void> _bufferedChangeEvent(Duration event) async {
-    final queueIndex = getQueueIndex(
+    getQueueIndex(
       _player!.currentIndex,
       _player!.shuffleIndices,
       shuffleModeEnabled: _player!.shuffleModeEnabled,

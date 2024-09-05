@@ -150,11 +150,6 @@ class _SettingPageState extends State<SettingPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final List<String> userThemesList = <String>[
-      'Default',
-      ...userThemes.keys.map((theme) => theme as String),
-      'Custom',
-    ];
 
     return Scaffold(
       // backgroundColor: Colors.transparent,

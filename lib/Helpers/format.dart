@@ -13,7 +13,6 @@ import 'package:soundal/Helpers/extensions.dart';
 import 'package:soundal/Helpers/image_resolution_modifier.dart';
 import 'package:soundal/Helpers/logging.dart';
 import 'package:soundal/Services/youtube_services.dart';
-import 'package:soundal/Services/yt_music.dart';
 import 'package:soundal/main.dart';
 
 // ignore: avoid_classes_with_only_static_members

@@ -43,8 +43,6 @@ class _TopChartsState extends State<TopCharts>
   @override
   Widget build(BuildContext cntxt) {
     super.build(context);
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final bool rotated = MediaQuery.of(context).size.height < screenWidth;
     return DefaultTabController(
       length: 2,
       child: Scaffold(

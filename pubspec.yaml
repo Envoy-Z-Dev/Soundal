@@ -40,13 +40,14 @@ dependencies:
   # just_audio_libwinmedia: ^0.0.4 # For windows and linux.
   logging: ^1.2.0
   material_design_icons_flutter: ^7.0.7296
-  mutex: ^3.0.1
   metadata_god: ^0.5.2+1
+  mutex: ^3.0.1
   on_audio_query: ^2.9.0
   package_info_plus: ^8.0.2
   palette_generator: ^0.3.3+2
   path_provider: ^2.0.14
   permission_handler: ^11.3.1
+  queue: ^3.1.0+2
   receive_sharing_intent: ^1.8.0
   salomon_bottom_bar: ^3.3.2
   share_plus: ^10.0.2
@@ -54,7 +55,6 @@ dependencies:
   url_launcher: ^6.1.10
   uuid: ^3.0.7
   youtube_explode_dart: ^2.2.1
-  queue: ^3.1.0+2
 
 dev_dependencies:
   flutter_test:

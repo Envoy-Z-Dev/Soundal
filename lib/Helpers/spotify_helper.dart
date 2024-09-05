@@ -1,10 +1,9 @@
 import 'package:app_links/app_links.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:soundal/APIs/spotify_api.dart';
+import 'package:soundal/Helpers/logging.dart';
 import 'package:soundal/main.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:soundal/Helpers/logging.dart';
 
 //final spotifyQueue = Queue(delay: const Duration(milliseconds: 350));
 

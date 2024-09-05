@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:html_unescape/html_unescape_small.dart';
 import 'package:http/http.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:soundal/Helpers/logging.dart';
 import 'package:soundal/main.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
@@ -397,12 +396,8 @@ class YouTubeServices {
               .toString();
 
       try {
-        String pathToUse;
         if (path == null) {
-          pathToUse = (await getApplicationDocumentsDirectory()).path;
-        } else {
-          pathToUse = path;
-        }
+        } else {}
 /*        final collection = await BoxCollection.open(
           'Soundal', // Name of your database
           {'ytlinkcache'}, // Names of your boxes
