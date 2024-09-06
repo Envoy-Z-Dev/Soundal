@@ -245,8 +245,8 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
-        body: WillPopScope(
-          onWillPop: () => handleWillPop(context),
+        body: PopScope(
+          onPop: () => handleWillPop(context),
           child: SafeArea(
             child: Row(
               children: [
