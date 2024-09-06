@@ -132,17 +132,22 @@ class MyApp extends StatefulWidget {
   // ignore: unreachable_from_main
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
+
+  // Function to handle shared text
+  static Future<void> handleSharedText(
+      String value, GlobalKey<NavigatorState> navigatorKey) async {
+    // Handle shared text (e.g., URL, playlist, etc.)
+    Logger.root.info('Shared text: $value');
+  }
 }
 
 class _MyAppState extends State<MyApp> {
   Locale _locale = const Locale('en', '');
-  late StreamSubscription _intentTextStreamSubscription;
-  late StreamSubscription _intentDataStreamSubscription;
+  late StreamSubscription<List<SharedMediaFile>> _intentDataStreamSubscription;
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   void dispose() {
-    _intentTextStreamSubscription.cancel();
     _intentDataStreamSubscription.cancel();
     super.dispose();
   }
@@ -150,7 +155,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    final String systemLangCode = Platform.localeName.substring(0, 2);
+    // final String systemLangCode = Platform.localeName.substring(0, 2);
     /*if (ConstantCodes.languageCodes.values.contains(systemLangCode)) {
       _locale = Locale(systemLangCode);
     } else {*/
@@ -165,29 +170,6 @@ class _MyAppState extends State<MyApp> {
 
     if (Platform.isAndroid || Platform.isIOS) {
       // For sharing or opening urls/text coming from outside the app while the app is in the memory
-      _intentTextStreamSubscription =
-          ReceiveSharingIntent.getTextStream().listen(
-        (String value) {
-          Logger.root.info('Received intent on stream: $value');
-          handleSharedText(value, navigatorKey);
-        },
-        onError: (err) {
-          Logger.root.severe('ERROR in getTextStream', err);
-        },
-      );
-
-      // For sharing or opening urls/text coming from outside the app while the app is closed
-      ReceiveSharingIntent.getInitialText().then(
-        (String? value) {
-          Logger.root.info('Received Intent initially: $value');
-          if (value != null) handleSharedText(value, navigatorKey);
-        },
-        onError: (err) {
-          Logger.root.severe('ERROR in getInitialTextStream', err);
-        },
-      );
-
-      // For sharing files coming from outside the app while the app is in the memory
       _intentDataStreamSubscription =
           ReceiveSharingIntent.instance.getMediaStream().listen(
         (List<SharedMediaFile> value) {
@@ -206,6 +188,10 @@ class _MyAppState extends State<MyApp> {
                 ).then(
                   (value) => navigatorKey.currentState?.pushNamed('/playlists'),
                 );
+              } else if (file.mimeType == 'text/plain' ||
+                  file.mimeType == 'text/uri-list') {
+                // Handle shared text from getMediaStream
+                MyApp.handleSharedText(file.path, navigatorKey);
               }
             }
           }
@@ -233,6 +219,10 @@ class _MyAppState extends State<MyApp> {
                 ).then(
                   (value) => navigatorKey.currentState?.pushNamed('/playlists'),
                 );
+              } else if (file.mimeType == 'text/plain' ||
+                  file.mimeType == 'text/uri-list') {
+                // Handle shared text from getInitialMedia
+                MyApp.handleSharedText(file.path, navigatorKey);
               }
             }
           }
@@ -261,6 +251,10 @@ class _MyAppState extends State<MyApp> {
               ).then(
                 (value) => navigatorKey.currentState?.pushNamed('/playlists'),
               );
+            } else if (file.mimeType == 'text/plain' ||
+                file.mimeType == 'text/uri-list') {
+              // Handle shared text from getInitialMedia
+              MyApp.handleSharedText(file.path, navigatorKey);
             }
           }
         }

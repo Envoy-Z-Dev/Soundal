@@ -246,7 +246,7 @@ class _HomePageState extends State<HomePage> {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: PopScope(
-          onPop: () => handleWillPop(context),
+          canPop: false,
           child: SafeArea(
             child: Row(
               children: [
