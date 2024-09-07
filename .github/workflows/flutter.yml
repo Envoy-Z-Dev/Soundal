@@ -1,4 +1,4 @@
-name: APK Compilation 
+name: APK Compilation
 
 on:
   workflow_dispatch: 
