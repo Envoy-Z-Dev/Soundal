@@ -1,4 +1,4 @@
-name: APK Compilation
+name: APK Compilation 
 
 on:
   workflow_dispatch: 
@@ -8,7 +8,8 @@ env:
   FLUTTER_CHANNEL: "stable"
 
 jobs:
-  build:
+  apk_compilation: 
+    name: "APK Compilation"
     runs-on: ubuntu-latest
 
     steps:
