@@ -1,4 +1,4 @@
-name: APK Compilation
+name: APK Compilation (Android)
 
 on:
   workflow_dispatch: 
@@ -45,6 +45,10 @@ jobs:
       # Install Flutter dependencies
       - name: Install Flutter Dependencies
         run: flutter pub get
+
+      # Build Generated Files
+      - name: Generate Files with Build Runner
+        run: dart run build_runner build --delete-conflicting-outputs --enable-experiment=records,patterns
 
       # Build APKs
       - name: Build APKs
